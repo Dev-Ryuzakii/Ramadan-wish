@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramadan Mubarak</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a1a2f 0%, #102848 50%, #0a1a2f 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 50% 70%, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                radial-gradient(circle at 80% 40%, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 100px 100px;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            padding: 40px 20px;
+            background: rgba(10, 26, 47, 0.6);
+            border-radius: 20px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(248, 231, 181, 0.1);
+        }
+        
+        .crescent {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: #f8e7b5;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            filter: drop-shadow(0 0 3px rgba(248, 231, 181, 0.8));
+        }
+        
+        .star1 { width: 15px; height: 15px; top: 20px; left: 30px; animation: twinkle 3s infinite; }
+        .star2 { width: 10px; height: 10px; top: 50px; right: 40px; animation: twinkle 2s infinite 0.5s; }
+        .star3 { width: 12px; height: 12px; bottom: 40px; left: 50px; animation: twinkle 4s infinite 1s; }
+        .star4 { width: 8px; height: 8px; bottom: 20px; right: 60px; animation: twinkle 3s infinite 1.5s; }
+        .star5 { width: 14px; height: 14px; top: 80px; left: 10px; animation: twinkle 3.5s infinite 0.8s; }
+        .star6 { width: 9px; height: 9px; bottom: 60px; right: 20px; animation: twinkle 4.5s infinite 1.2s; }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.3; transform: scale(0.8); }
+        }
+        
+        .moon {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at 25% 25%, #ffffff 0%, #f8e7b5 100%);
+            border-radius: 50%;
+            margin: 0 auto;
+            box-shadow: 0 0 30px rgba(248, 231, 181, 0.8);
+            animation: glow 4s infinite alternate;
+        }
+        
+        .moon::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            right: -15px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #0a1a2f 0%, #102848 50%, #0a1a2f 100%);
+            border-radius: 50%;
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(248, 231, 181, 0.8); }
+            to { box-shadow: 0 0 50px rgba(248, 231, 181, 0.9); }
+        }
+        
+        .mosque {
+            margin: 0 auto;
+            width: 200px;
+            height: 40px;
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .dome {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to bottom, #3a6bac, #2a4b7c);
+            border-radius: 50% 50% 0 0;
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 -5px 15px rgba(37, 74, 126, 0.5);
+        }
+        
+        .minaret {
+            width: 15px;
+            height: 80px;
+            background: linear-gradient(to bottom, #3a6bac, #2a4b7c);
+            position: absolute;
+            bottom: 40px;
+            box-shadow: 0 0 10px rgba(37, 74, 126, 0.5);
+        }
+        
+        .minaret1 { left: 30px; }
+        .minaret2 { right: 30px; }
+        
+        .minaret::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #3a6bac;
+            border-radius: 50%;
+            top: -10px;
+        }
+        
+        .base {
+            width: 200px;
+            height: 40px;
+            background: linear-gradient(to bottom, #3a6bac, #2a4b7c);
+            position: absolute;
+            bottom: 0;
+            border-radius: 5px 5px 0 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ffffff, #f8e7b5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0px 2px 5px rgba(248, 231, 181, 0.5);
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        
+        .arabic {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-family: 'Arial', sans-serif;
+            color: #f8e7b5;
+            text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: #e6e6e6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .lanterns {
+            display: flex;
+            justify-content: space-around;
+            max-width: 500px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+        
+        .lantern {
+            width: 40px;
+            height: 70px;
+            background: linear-gradient(to bottom, #dd9933, #cc8822);
+            border-radius: 20px;
+            position: relative;
+            animation: sway 5s infinite alternate ease-in-out;
+            box-shadow: 0 0 20px rgba(221, 153, 51, 0.7);
+            transform-style: preserve-3d;
+        }
+        
+        .lantern::before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 10px;
+            background: linear-gradient(to bottom, #dd9933, #cc8822);
+            border-radius: 5px;
+            top: -7px;
+            left: -5px;
+        }
+        
+        .lantern::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 10px;
+            background: linear-gradient(to bottom, #dd9933, #cc8822);
+            border-radius: 5px;
+            bottom: -7px;
+            left: -5px;
+        }
+        
+        .lantern-light {
+            position: absolute;
+            width: 30px;
+            height: 50px;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.9) 0%, rgba(255, 243, 181, 0.5) 40%, transparent 80%);
+            top: 10px;
+            left: 5px;
+            border-radius: 15px;
+            animation: flicker 3s infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0%, 100% { opacity: 0.6; }
+            25% { opacity: 0.8; }
+            50% { opacity: 1; }
+            75% { opacity: 0.9; }
+        }
+        
+        .lantern1 { animation-delay: 0s; transform: rotate(-2deg); }
+        .lantern2 { animation-delay: 0.5s; }
+        .lantern3 { animation-delay: 1s; transform: rotate(2deg); }
+        .lantern4 { animation-delay: 1.5s; transform: rotate(-1deg); }
+        .lantern5 { animation-delay: 0.7s; transform: rotate(1deg); }
+        
+        @keyframes sway {
+            0% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(5px) rotate(0deg); }
+            100% { transform: translateY(0) rotate(2deg); }
+        }
+        
+        .ornaments {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .ornament {
+            position: absolute;
+            border: 2px solid rgba(248, 231, 181, 0.2);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        .ornament1 { width: 70px; height: 70px; top: 10%; left: 5%; animation-duration: 30s; }
+        .ornament2 { width: 90px; height: 90px; top: 60%; right: 10%; animation-duration: 40s; }
+        .ornament3 { width: 50px; height: 50px; bottom: 20%; left: 15%; animation-duration: 35s; }
+        .ornament4 { width: 60px; height: 60px; top: 30%; right: 5%; animation-duration: 25s; }
+        .ornament5 { width: 80px; height: 80px; bottom: 10%; right: 20%; animation-duration: 45s; }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(10px, 10px) rotate(90deg); }
+            50% { transform: translate(0, 20px) rotate(180deg); }
+            75% { transform: translate(-10px, 10px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        
+        .decorative-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: 
+                linear-gradient(0deg, transparent 24%, rgba(248, 231, 181, 0.02) 25%, rgba(248, 231, 181, 0.02) 26%, transparent 27%, transparent 74%, rgba(248, 231, 181, 0.02) 75%, rgba(248, 231, 181, 0.02) 76%, transparent 77%, transparent),
+                linear-gradient(90deg, transparent 24%, rgba(248, 231, 181, 0.02) 25%, rgba(248, 231, 181, 0.02) 26%, transparent 27%, transparent 74%, rgba(248, 231, 181, 0.02) 75%, rgba(248, 231, 181, 0.02) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+        
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .arabic {
+                font-size: 1.8rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .crescent {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .moon {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .moon::before {
+                width: 80px;
+                height: 80px;
+                right: -12px;
+            }
+            
+            .mosque {
+                width: 160px;
+            }
+            
+            .base {
+                width: 160px;
+            }
+            
+            .minaret1 { left: 20px; }
+            .minaret2 { right: 20px; }
+            
+            .lantern {
+                width: 30px;
+                height: 60px;
+            }
+            
+            .lantern-light {
+                width: 20px;
+                height: 40px;
+                top: 10px;
+                left: 5px;
+            }
+        }
+        h3 {
+    font-size: 1rem;
+    margin-top: 30px;
+    color: #f8e7b5;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    padding: 10px;
+    border-top: 1px solid rgba(248, 231, 181, 0.2);
+    background: linear-gradient(to right, transparent, rgba(248, 231, 181, 0.1), transparent);
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease;
+}
+
+h3:hover {
+    color: #ffffff;
+    text-shadow: 0px 0px 8px rgba(248, 231, 181, 0.8);
+    transform: scale(1.05);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="decorative-pattern"></div>
+        <div class="ornaments">
+            <div class="ornament ornament1"></div>
+            <div class="ornament ornament2"></div>
+            <div class="ornament ornament3"></div>
+            <div class="ornament ornament4"></div>
+            <div class="ornament ornament5"></div>
+        </div>
+        
+        <div class="crescent">
+            <div class="moon"></div>
+            <div class="star star1"></div>
+            <div class="star star2"></div>
+            <div class="star star3"></div>
+            <div class="star star4"></div>
+            <div class="star star5"></div>
+            <div class="star star6"></div>
+        </div>
+        
+        <div class="mosque">
+            <div class="dome"></div>
+            <div class="minaret minaret1"></div>
+            <div class="minaret minaret2"></div>
+            <div class="base"></div>
+        </div>
+        
+        <h1>Ramadan Mubarak</h1>
+        <div class="arabic">رمضان مبارك</div>
+        
+        <p>May the divine blessings of Allah bring you hope, faith, and joy on the occasion of Ramadan. May the holy month fill your life with happiness, peace, and prosperity.</p>
+        
+        <div class="lanterns">
+            <div class="lantern lantern1">
+                <div class="lantern-light"></div>
+            </div>
+            <div class="lantern lantern2">
+                <div class="lantern-light"></div>
+            </div>
+            <div class="lantern lantern3">
+                <div class="lantern-light"></div>
+            </div>
+            <div class="lantern lantern4">
+                <div class="lantern-light"></div>
+            </div>
+            <div class="lantern lantern5">
+                <div class="lantern-light"></div>
+            </div>
+        </div>
+        <br>
+        <h3>Copy Right @Syntax_Sorcerer👨🏾‍💻</h3>
+    </div>
+</body>
+</html>
